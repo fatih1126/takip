@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Student Progress Tracker</title>
+</head>
+<body>
+    <h1>Student Progress Tracker</h1>
+    <form method="POST">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <ul>
+                {% for category, message in messages %}
+                    <li class="{{ category }}">{{ message }}</li>
+                {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+        
+        <label for="name">Student Name:</label>
+        <input type="text" id="name" name="name" required><br>
+
+        <h2>Kuran-ı Kerim</h2>
+        <input type="checkbox" name="kurani_kerim" value="0"> Elif Cüzünün tanıtılması<br>
+        <input type="checkbox" name="kurani_kerim" value="1"> Eûzü Besmele ve Rabbi Yessir Dualarının öğretilmesi<br>
+        <input type="checkbox" name="kurani_kerim" value="2"> Elif Cüzünün 2. ve 3. sayfalarının öğrenilmesi<br>
+
+        <h2>Sure/Dua Ezber Takibi</h2>
+        <input type="checkbox" name="sure_dua" value="0"> Eûzü Besmele<br>
+        <input type="checkbox" name="sure_dua" value="1"> Rabbi Yessir<br>
+        <input type="checkbox" name="sure_dua" value="2"> Kelime-i Şehadet<br>
+        <input type="checkbox" name="sure_dua" value="3"> Kelime-i Tevhid<br>
+        <input type="checkbox" name="sure_dua" value="4"> Sübhaneke<br>
+        <input type="checkbox" name="sure_dua" value="5"> Kevser Suresi<br>
+
+        <h2>İlmihal Bilgisi Takibi</h2>
+        <input type="checkbox" name="ilmihal" value="0"> İlmihal<br>
+        <input type="checkbox" name="ilmihal" value="1"> Abdest - Taharet<br>
+        <input type="checkbox" name="ilmihal" value="2"> Namaz kılınışı<br>
+        <input type="checkbox" name="ilmihal" value="3"> 32 Farz<br>
+
+        <h2>Şahsiyet Eğitimi Bilgisi Takibi</h2>
+        <input type="checkbox" name="sahsiyet" value="0"> Helaya girerken yapmamız gerekenler<br>
+        <input type="checkbox" name="sahsiyet" value="1"> Helada yapmamız gerekenler<br>
+        <input type="checkbox" name="sahsiyet" value="2"> Heladan çıkarken yapmamız gerekenler<br>
+
+        <h2>Siyer-i Nebi (Peygamber Efendimizin Hayatı)</h2>
+        <input type="checkbox" name="siyer" value="0"> Peygamber Efendimizin Mübarek soyu<br>
+        <input type="checkbox" name="siyer" value="1"> Abluka günleri<br>
+
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

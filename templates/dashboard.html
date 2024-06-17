@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Dashboard</title>
+</head>
+<body>
+    <h1>Dashboard</h1>
+    <a href="{{ url_for('add_lesson') }}">Add Lesson</a>
+    <a href="{{ url_for('download_report') }}">Download Report</a>
+    <h2>Your Lessons</h2>
+    <ul>
+        {% for lesson in lessons %}
+        <li>{{ lesson.date }} - Kuran: {{ lesson.kurani_kerim }}, Sure: {{ lesson.sure_dua }}, Ilmihal: {{ lesson.ilmihal }}, Sahsiyet: {{ lesson.sahsiyet }}, Siyer: {{ lesson.siyer }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
